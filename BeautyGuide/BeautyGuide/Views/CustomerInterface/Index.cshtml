@@ -1,0 +1,48 @@
+﻿@* 
+@{
+  
+    ViewBag.report = false;
+
+    Layout = "~/Views/Shared/_LayoutCustomerInterface.cshtml";
+
+}
+
+@foreach (var item in Model.ContentDetailList)
+ {
+        <div class="row mt-5">
+            <div class="col-md-6">
+            <h3 style="text-align:center; font-weight:bold;">@item.Name</h3>
+                <p style="color:black; text-align:center;">
+                    @item.Description
+                </p>
+            </div>
+            <div class="col-md-6">
+            <video width="500px" height="auto" controls>
+                <source src="/uploads/images/@item.NameVideo" type="video/mp4">
+            </video>
+            </div>
+        </div>
+  } *@
+@{
+
+    ViewBag.report = false;
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutCustomerInterface.cshtml";
+
+}
+@foreach (var item in Model.ContentDetailList)
+{
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <h3 style="text-align:center; font-weight:bold;">@item.Name</h3>
+            <p style="color:black; text-align:center">
+                @item.Description
+            </p>
+        </div>
+        <div class="col-md-6">
+            <video width="500px" height="auto" controls>
+                <source src="/uploads/images/@item.NameVideo" type="video/mp4">
+            </video>
+        </div>
+    </div>
+}

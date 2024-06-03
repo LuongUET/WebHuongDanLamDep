@@ -1,0 +1,201 @@
+﻿@model BeautyGuide.Models.CustomerInterfaceViewModel
+<!DOCTYPE>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/footer/fonts/icomoon/style.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/footer/css/bootstrap.min.css">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="~/footer/css/style.css">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/header/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="~/header/css/owl.carousel.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/header/css/bootstrap.min.css">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="~/header/css/style.css">
+    <title>Beauti Guide - @ViewData["title"]</title>
+    <style>
+        body {
+            background-color: #f0f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+    <div class="top-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <a href="#" class=""><span class="mr-2  icon-envelope-open-o"></span> <span class="d-none d-md-inline-block">info@yourdomain.com</span></a>
+                    <span class="mx-md-2 d-inline-block"></span>
+                    <a href="#" class=""><span class="mr-2  icon-phone"></span> <span class="d-none d-md-inline-block">1+ (234) 5678 9101</span></a>
+
+
+                    <div class="float-right">
+
+                        <a href="#" class=""><span class="mr-2  icon-twitter"></span> <span class="d-none d-md-inline-block">Twitter</span></a>
+                        <span class="mx-md-2 d-inline-block"></span>
+                        <a href="#" class=""><span class="mr-2  icon-facebook"></span> <span class="d-none d-md-inline-block">Facebook</span></a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+
+        <div class="container">
+            <div class="row align-items-center position-relative">
+
+
+                <div class="site-logo">
+                    <a href="index.html" class="text-black"><span class="text-primary">Beauty Guide </span> </a>
+                </div>
+
+                <div class="col-12">
+                    <nav class="site-navigation text-right ml-auto " role="navigation">
+
+                        <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+                            <li><a href="@Url.Action("Index", "CustomerInterface")" class="nav-link">Home</a></li>
+                            @* <li><a href="#services-section" class="nav-link">Services</a></li> *@
+                            @foreach (var item in ViewBag.category)
+                            {
+
+
+                                @*      <li class="has-children">
+                                <a href="#about-section" class="nav-link">About Us</a>
+                                <ul class="dropdown arrow-top">
+                                    <li><a href="#team-section" class="nav-link">Team</a></li>
+                                    <li><a href="#pricing-section" class="nav-link">Pricing</a></li>
+                                    <li><a href="#faq-section" class="nav-link">FAQ</a></li>
+                                    <li class="has-children">
+                                        <a href="#">More Links</a>
+                                        <ul class="dropdown">
+                                            <li><a href="#">Menu One</a></li>
+                                            <li><a href="#">Menu Two</a></li>
+                                            <li><a href="#">Menu Three</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li> *@
+
+                            @* <li><a href="#why-us-section" class="nav-link">Why Us</a></li> *@
+
+                                <li><a href="@Url.Action("Category", "CustomerInterface", new {id = @item.CategoryId})" class="nav-link">@item.NameCategory</a></li>
+                            @* <li><a href="#blog-section" class="nav-link">Blog</a></li> *@
+                            @* <li><a href="#contact-section" class="nav-link">Contact</a></li> *@
+                            }
+                            <li><a href="@Url.Action("Logout", "Login")" class="nav-link">Logout</a></li>
+                        </ul>
+                    </nav>
+
+                </div>
+
+                <div class="toggle-button d-inline-block d-lg-none"><a href="#" class="site-menu-toggle py-5 js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+            </div>
+        </div>
+
+    </header>
+
+   
+    <div class="hero" style="background-image: url('/IMG_0234.jpg');"></div>
+    <div class="container"> 
+        @RenderBody()
+    </div>
+    <footer class="footer-59391">
+
+        <div class="container">
+
+
+            <div class="row mb-5">
+                <div class="col-md-4">
+                    <div class="site-logo">
+                        <a href="#">Beauty Guide</a>
+                    </div>
+                </div>
+                <div class="col-md-8 text-md-right">
+                    <ul class="list-unstyled social-icons">
+                        <li><a href="#" class="fb"><span class="icon-facebook"></span></a></li>
+                        <li><a href="#" class="tw"><span class="icon-twitter"></span></a></li>
+                        <li><a href="#" class="in"><span class="icon-instagram"></span></a></li>
+                        <li><a href="#" class="be"><span class="icon-behance"></span></a></li>
+                        <li><a href="#" class="dr"><span class="icon-dribbble"></span></a></li>
+                        <li><a href="#" class="yt"><span class="icon-play"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-md-6 ">
+                    <ul class="nav-links list-unstyled nav-left">
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <ul class="nav-links list-unstyled nav-right">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Our works</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col ">
+                    <div class="copyright">
+                        <p><small>Copyright 2019. All Rights Reserved.</small></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <script src="~/footer/js/jquery-3.3.1.min.js"></script>
+    <script src="~/footer/js/popper.min.js"></script>
+    <script src="~/footer/js/bootstrap.min.js"></script>
+    <script src="~/header/js/jquery-3.3.1.min.js"></script>
+    <script src="~/header/js/popper.min.js"></script>
+    <script src="~/header/js/bootstrap.min.js"></script>
+    <script src="~/header/js/jquery.sticky.js"></script>
+    <script src="~/header/js/main.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
